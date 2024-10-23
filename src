@@ -1,0 +1,25 @@
+import random
+
+def gerar_cartao():
+    """Gera um cartão com 6 números distintos entre 1 e 60."""
+    return sorted(random.sample(range(1, 61), 6))
+
+def main():
+    """Função principal do programa."""
+    try:
+        num_cartoes = int(input("Quantos cartões você deseja gerar? "))
+        if num_cartoes <= 0:
+            print("Por favor, insira um número válido de cartões.")
+            return
+        
+        cartoes = [gerar_cartao() for _ in range(num_cartoes)]
+        
+        print("\nCombinações geradas para a Mega-Sena:")
+        for i, cartao in enumerate(cartoes, 1):
+            print(f"Cartão {i}: {cartao}")
+            
+    except ValueError:
+        print("Por favor, insira um número inteiro válido.")
+
+if __name__ == "__main__":
+    main()
